@@ -22,11 +22,11 @@ If you're using [oh-my-zsh](github.com/robbyrussell/oh-my-zsh):
 
 2. Clone the repository into a new `warhol.plugin.zsh` directory:
 
-    `git clone https://github.com/unixorn/warhol.plugin.zsh.git warhol.plugin.zsh`
+    `git clone https://github.com/unixorn/warhol.plugin.zsh.git warhol`
 
 3. Edit your `~/.zshrc` and add `warhol.plugin.zsh` – same as clone directory – to the list of plugins to enable:
 
-    `plugins=( ... warhol.plugin.zsh )`
+    `plugins=( ... warhol )`
 
 4. Then, restart your terminal application to **refresh context** and use the plugin. Alternatively, you can source your current shell configuration:
 
