@@ -3,7 +3,7 @@
 # I use grc to colorize some command output for clarity.
 # brew install grc on OS X to check it out.
 
-GRC=`which grc`
+GRC=$(which grc)
 
 if [ "$TERM" != dumb ] && [ -n "$GRC" ]; then
   alias colourify="$GRC -es --colour=auto"
@@ -11,11 +11,11 @@ if [ "$TERM" != dumb ] && [ -n "$GRC" ]; then
   # Use functions so we can still take advantage of ZSH completion functions
 
   function as(){
-    grc --colour=auto /usr/bin/as
+    grc --colour=auto /usr/bin/as "$@"
   }
 
   function diff(){
-    grc --colour=auto /usr/bin/diff
+    grc --colour=auto /usr/bin/diff "$@"
   }
 
   if [ -x /usr/bin/dig ]; then
@@ -26,7 +26,7 @@ if [ "$TERM" != dumb ] && [ -n "$GRC" ]; then
 
   if [ -x /usr/bin/gas ]; then
     function gas(){
-      grc --colour=auto /usr/bin/gas
+      grc --colour=auto /usr/bin/gas "$@"
     }
   fi
 
