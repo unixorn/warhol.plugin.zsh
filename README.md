@@ -20,7 +20,7 @@ If you're using [oh-my-zsh](github.com/robbyrussell/oh-my-zsh):
 
     `cd ~/.oh-my-zsh/custom/plugins/`
 
-2. Clone the repository into a new `warhol.plugin.zsh` directory:
+2. Clone the repository into a new `warhol` directory in your custom plugins:
 
     `git clone https://github.com/unixorn/warhol.plugin.zsh.git warhol`
 
