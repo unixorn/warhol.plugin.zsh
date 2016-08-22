@@ -43,7 +43,7 @@ The scripts in here don't actually require you to be using ZSH as your login she
 
 Customizing `LSCOLORS` for OSX/*BSD and `LS_COLORS` for Linux is a hassle. It's even more of a hassle to keep them in sync across *BSD and Linux.
 
-Fortunately, Geoff Greer made an online tool that makes it easy to customize your color scheme and keep them in sync across Linux and OS X/*BSD at [lscolors](http://geoff.greer.fm/lscolors/). I've included my versions of `LSCOLORS` and `LS_COLORS` here, but they're easy enough to override.
+Fortunately, Geoff Greer made an online tool that makes it easy to customize your color scheme and keep them in sync across Linux and OS X/*BSD available online at [lscolors](http://geoff.greer.fm/lscolors/). I've included my `LSCOLORS` and `LS_COLORS` settings in this plugin. The easiest way to change them is to redeclare the variables in your `.zshrc` after your framework loads your plugins.
 
 ## Why functions instead of aliases?
 
