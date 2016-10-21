@@ -102,6 +102,11 @@ if [ "$TERM" != dumb ] && [ -n "$GRC" ]; then
       \grc --colour=auto /sbin/ping "$@"
     }
   fi
+  if [ -x /sbin/ping6 ]; then
+    function ping6(){
+      \grc --colour=auto /sbin/ping6 "$@"
+    }
+  fi
   if [ -x /bin/ping ]; then
     function ping(){
       \grc --colour=auto /bin/ping "$@"
