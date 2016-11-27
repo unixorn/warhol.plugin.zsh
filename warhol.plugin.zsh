@@ -1,6 +1,7 @@
 #!/bin/zsh
 
-# I use grc to colorize some command output for clarity.
+# I use grc to colorize the output of some commands for clarity.
+#
 # brew install grc on OS X to check it out.
 
 GRC=$(which -p grc)
@@ -137,6 +138,58 @@ if [ "$TERM" != dumb ] && [ -n "$GRC" ]; then
     }
   fi
 
+fi
+
+# ANSI Color
+# Attributes are in #;#;#...;#
+# 0 reset, 1 bold, 4 underline, 5 flashing, 7 inverse
+# Text
+# 30 black, 31 red, 32 green, 33 yellow, 34 blue, 35 magenta, 36 cyan, 37 white
+# Background colors are 40-47
+# 100-107 are lighter variants
+ANSI_RESET="\033[0;0m"
+ANSI_BOLD="\033[1;1m"
+ANSI_UNDERLINE="\033[4;4m"
+ANSI_FLASH="\033[5;5m"
+ANSI_INVERSE="\033[7;7m"
+
+# text colors
+ANSI_BLACK="\033[30;30m"
+ANSI_RED="\033[31;31m"
+ANSI_GREEN="\033[32;32m"
+ANSI_YELLOW="\033[33;33m"
+ANSI_BLUE="\033[34;34m"
+ANSI_MAGENTA="\033[35;35m"
+ANSI_CYAN="\033[36;36m"
+ANSI_WHITE="\033[36;36m"
+
+# background colors
+ANSI_BG_BLACK="\033[40;40m"
+ANSI_BG_RED="\033[41;41m"
+ANSI_BG_GREEN="\033[42;42m"
+ANSI_BG_YELLOW="\033[43;43m"
+ANSI_BG_BLUE="\033[44;44m"
+ANSI_BG_MAGENTA="\033[45;45m"
+ANSI_BG_CYAN="\033[46;46m"
+ANSI_BG_WHITE="\033[47;47m"
+
+# Configure colors, if available.
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+  c_reset='\[\e[0m\]'
+  # c_user='\[\033[1;33m\]'
+  # c_path='\[\e[0;33m\]'
+  # c_git_clean='\[\e[0;36m\]'
+  # c_git_dirty='\[\e[0;35m\]'
+  c_user=${ANSI_CYAN}
+  c_path=${ANSI_LIGHT_BLUE}
+  c_git_clean=${ANSI_LIGHT_GREEN}
+  c_git_dirty=${ANSI_LIGHT_RED}
+else
+  c_reset=
+  c_user=
+  c_path=
+  c_git_clean=
+  c_git_dirty=
 fi
 
 # Yes, these are a pain to customize. Fortunately, Geoff Greer made an online
