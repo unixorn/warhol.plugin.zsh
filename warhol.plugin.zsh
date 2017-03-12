@@ -6,6 +6,9 @@
 
 GRC=$(which -p grc)
 
+PLUGIN_BIN="$(dirname $0)/bin"
+export PATH=${PATH}:${PLUGIN_BIN}
+
 if [ "$TERM" != dumb ] && [ -n "$GRC" ]; then
   alias colourify="$GRC -es --colour=auto"
 
