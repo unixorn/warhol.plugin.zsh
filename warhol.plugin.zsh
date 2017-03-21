@@ -4,12 +4,10 @@
 #
 # brew install grc on OS X to check it out.
 
-GRC=$(which -p grc)
-
 PLUGIN_BIN="$(dirname $0)/bin"
 export PATH=${PATH}:${PLUGIN_BIN}
 
-if [ "$TERM" != dumb ] && [ -n "$GRC" ]; then
+if [ "$TERM" != dumb ] && builtin type -p grc >/dev/null 2>&1; then
   alias colourify="$GRC -es --colour=auto"
 
   # Use functions so we can still take advantage of ZSH completion functions
