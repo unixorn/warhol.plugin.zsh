@@ -11,99 +11,97 @@ if [ "$TERM" != dumb ] && builtin type -p grc >/dev/null 2>&1; then
   setopt complete_aliases
   alias colourify="$GRC -es --colour=auto"
 
-  alias as=grc --colour=auto /usr/bin/as "$@"
-  alias diff=grc --colour=auto /usr/bin/diff "$@"
-
-  
+  alias as="grc --colour=auto /usr/bin/as"
+  alias diff="grc --colour=auto /usr/bin/diff"
 
   if [ -x /usr/bin/dig ]; then
-    alias dig=grc --colour=auto /usr/bin/dig "$@"
+    alias dig="grc --colour=auto /usr/bin/dig"
   fi
 
   if [ -x /usr/bin/gas ]; then
-    alias gas=grc --colour=auto /usr/bin/gas "$@"
+    alias gas="grc --colour=auto /usr/bin/gas"
   fi
 
   if [ -x /usr/bin/gcc ]; then
-    alias gcc=grc --colour=auto /usr/bin/gcc "$@"
+    alias gcc="grc --colour=auto /usr/bin/gcc"
   fi
 
   if [ -x /usr/bin/g++ ]; then
-    alias g++=grc --colour=auto /usr/bin/g++ "$@"
+    alias g++="grc --colour=auto /usr/bin/g++"
   fi
 
   if [ -x /usr/bin/last ]; then
-    alias last=grc --colour=auto /usr/bin/last "$@"
+    alias last="grc --colour=auto /usr/bin/last"
   fi
 
   if [ -x /usr/bin/ld ]; then
-    alias ld=grc --colour=auto /usr/bin/ld "$@"
+    alias ld="grc --colour=auto /usr/bin/ld"
   fi
 
   if [ -x /sbin/ifconfig ]; then
-    alias ifconfig=grc --colour=auto /sbin/ifconfig "$@"
+    alias ifconfig="grc --colour=auto /sbin/ifconfig"
   fi
 
   # mount was in primordial Unix, but OS X and Linux have it in different paths.
   if [ -x /bin/mount ]; then
-    alias mount=grc --colour=auto /bin/mount "$@"
+    alias mount="grc --colour=auto /bin/mount"
   fi
   if [ -x /sbin/mount ]; then
-    alias mount=grc --colour=auto /sbin/mount "$@"
+    alias mount="grc --colour=auto /sbin/mount"
   fi
 
   # OS X and Linux have different paths to mtr
   if [ -x /usr/local/sbin/mtr ]; then
-    alias mtr=grc --colour=auto /usr/local/sbin/mtr "$@"
+    alias mtr="grc --colour=auto /usr/local/sbin/mtr"
   fi
   if [ -x /usr/sbin/mtr ]; then
-    alias mtr=grc --colour=auto /usr/sbin/mtr "$@"
+    alias mtr="grc --colour=auto /usr/sbin/mtr"
   fi
 
   # OS X and Linux have different paths to netstat
   if [ -x /usr/sbin/netstat ]; then
-    alias netstat=grc --colour=auto /usr/sbin/netstat "$@"
+    alias netstat="grc --colour=auto /usr/sbin/netstat"
   fi
   if [ -x /bin/netstat ]; then
-    alias netstat=grc --colour=auto /bin/netstat "$@"
+    alias netstat="grc --colour=auto /bin/netstat"
   fi
 
   # OS X and Linux have different paths to ping, of course
   if [ -x /sbin/ping ]; then
-    alias ping=grc --colour=auto /sbin/ping "$@"
+    alias ping="grc --colour=auto /sbin/ping"
   fi
   if [ -x /sbin/ping6 ]; then
-    alias ping6=grc --colour=auto /sbin/ping6 "$@"
+    alias ping6="grc --colour=auto /sbin/ping6"
   fi
   if [ -x /bin/ping ]; then
-    alias ping=grc --colour=auto /bin/ping "$@"
+    alias ping="grc --colour=auto /bin/ping"
   fi
 
   if [ -x /bin/ps ]; then
-    alias ps=grc --colour=auto /bin/ps "$@"
+    alias ps="grc --colour=auto /bin/ps"
   fi
 
   # OS X and Linux have different paths to traceroute
   if [ -x /usr/sbin/traceroute ]; then
-    alias traceroute=grc --colour=auto /usr/sbin/traceroute "$@"
+    alias traceroute="grc --colour=auto /usr/sbin/traceroute"
   fi
   if [ -x /bin/traceroute ]; then
-    alias traceroute=grc --colour=auto /bin/traceroute "$@"
+    alias traceroute="grc --colour=auto /bin/traceroute"
   fi
   # OS X and Linux have different paths to traceroute6 too
   if [ -x /usr/sbin/traceroute6 ]; then
-    alias traceroute6=grc --colour=auto /usr/sbin/traceroute6 "$@"
+    alias traceroute6="grc --colour=auto /usr/sbin/traceroute6"
   fi
   if [ -x /bin/traceroute6 ]; then
-    alias traceroute6=grc --colour=auto /bin/traceroute6 "$@"
+    alias traceroute6="grc --colour=auto /bin/traceroute6"
   fi
 
   #OS X and Linux have different paths to docker
   if [ -x /usr/bin/docker ]; then
-    alias docker=grc --colour=auto /usr/bin/docker "$@"
+    alias docker="grc --colour=auto /usr/bin/docker"
   fi
   if [ -x /usr/local/bin/docker ]; then
-    alias docker=grc --colour=auto /usr/local/bin/docker "$@"
+    alias docker="grc --colour=auto /usr/local/bin/docker"
   fi
 
 fi
