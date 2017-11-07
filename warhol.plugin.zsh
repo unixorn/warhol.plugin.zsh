@@ -98,7 +98,7 @@ if [ "$TERM" != dumb ] && builtin type -p grc >/dev/null 2>&1; then
     alias traceroute6=grc --colour=auto /bin/traceroute6 "$@"
   fi
 
-  OS X and Linux have different paths to docker
+  #OS X and Linux have different paths to docker
   if [ -x /usr/bin/docker ]; then
     alias docker=grc --colour=auto /usr/bin/docker "$@"
   fi
