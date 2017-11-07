@@ -11,6 +11,8 @@ if [ "$TERM" != dumb ] && builtin type -p grc >/dev/null 2>&1; then
   setopt complete_aliases
   alias colourify="$GRC -es --colour=auto"
 
+  alias sudo="sudo "
+
   alias as="grc --colour=auto /usr/bin/as"
   alias diff="grc --colour=auto /usr/bin/diff"
 
