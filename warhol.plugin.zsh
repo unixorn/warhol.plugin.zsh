@@ -4,11 +4,11 @@
 #
 # brew install grc on OS X to check it out.
 
-if (( $+commands[grc] )); then
-GRC=$(which -p grc)
+PLUGIN_BIN="$(dirname $0)/bin"
+export PATH=${PATH}:${PLUGIN_BIN}
 
-  PLUGIN_BIN="$(dirname $0)/bin"
-  export PATH=${PATH}:${PLUGIN_BIN}
+if (( $+commands[grc] )); then
+  GRC=$(which -p grc)
 
   if [ "$TERM" != dumb ] && [ -n "$GRC" ]; then
     alias colourify="${GRC} -es --colour=auto"
@@ -146,7 +146,6 @@ GRC=$(which -p grc)
         \grc --colour=auto /bin/traceroute6 "$@"
       }
     fi
-
   fi
 fi
 
