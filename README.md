@@ -14,7 +14,7 @@
 
 # warhol.plugin.zsh
 
-Colorize command output using grc and lscolors
+Colorize command output using `grc` (when present) and lscolors.
 
 ## Installing
 
@@ -49,7 +49,7 @@ If you're using [oh-my-zsh](github.com/robbyrussell/oh-my-zsh):
 ### Without using any frameworks
 
 1. `git clone git@github.com:unixorn/warhol.plugin.zsh.git`
-2. Add its bin directory to your $PATH. Add `source /path/to/here/warhol.plugin.zsh` to your `.zshrc` file.
+2. Add its bin directory to your $PATH. Add `source /path/to/clone/of/warhol.plugin.zsh` to your `.zshrc` file.
 
 The scripts in here don't actually require you to be using ZSH as your login shell, they're being distributed as a [zgen](https://github.com/zsh-users/antigen) plugin because that's convenient.
 
