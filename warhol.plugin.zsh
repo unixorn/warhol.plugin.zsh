@@ -184,7 +184,7 @@ ANSI_BG_CYAN="\033[46;46m"
 ANSI_BG_WHITE="\033[47;47m"
 
 # Configure colors, if available.
-if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+(( $+commands[tput] )) && tput setaf 1 >&/dev/null; then
   c_reset='\[\e[0m\]'
   # c_user='\[\033[1;33m\]'
   # c_path='\[\e[0;33m\]'
