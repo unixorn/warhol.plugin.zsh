@@ -7,143 +7,146 @@
 PLUGIN_BIN="$(dirname $0)/bin"
 export PATH=${PATH}:${PLUGIN_BIN}
 
-if [ "$TERM" != dumb ] && builtin type -p grc >/dev/null 2>&1; then
-  alias colourify="$GRC -es --colour=auto"
+if (( $+commands[grc] )); then
+  GRC=$(which -p grc)
 
-  # Use functions so we can still take advantage of ZSH completion functions
+  if [ "$TERM" != dumb ] && [ -n "$GRC" ]; then
+    alias colourify="${GRC} -es --colour=auto"
 
-  function as(){
-    \grc --colour=auto /usr/bin/as "$@"
-  }
+    # Use functions so we can still take advantage of ZSH completion functions
 
-  function diff(){
-    \grc --colour=auto /usr/bin/diff "$@"
-  }
+    function as(){
+      \grc --colour=auto /usr/bin/as "$@"
+    }
 
-  if [ -x /usr/bin/dig ]; then
-    function dig(){
-      \grc --colour=auto /usr/bin/dig "$@"
+    function diff(){
+      \grc --colour=auto /usr/bin/diff "$@"
     }
-  fi
 
-  if [ -x /usr/bin/gas ]; then
-    function gas(){
-      \grc --colour=auto /usr/bin/gas "$@"
-    }
-  fi
+    if [ -x /usr/bin/dig ]; then
+      function dig(){
+        \grc --colour=auto /usr/bin/dig "$@"
+      }
+    fi
 
-  if [ -x /usr/bin/gcc ]; then
-    function gcc(){
-      \grc --colour=auto /usr/bin/gcc "$@"
-    }
-  fi
+    if [ -x /usr/bin/gas ]; then
+      function gas(){
+        \grc --colour=auto /usr/bin/gas "$@"
+      }
+    fi
 
-  if [ -x /usr/bin/g++ ]; then
-    function g++(){
-      \grc --colour=auto /usr/bin/g++ "$@"
-    }
-  fi
+    if [ -x /usr/bin/gcc ]; then
+      function gcc(){
+        \grc --colour=auto /usr/bin/gcc "$@"
+      }
+    fi
 
-  if [ -x /usr/bin/last ]; then
-    function last(){
-      \grc --colour=auto /usr/bin/last "$@"
-    }
-  fi
+    if [ -x /usr/bin/g++ ]; then
+      function g++(){
+        \grc --colour=auto /usr/bin/g++ "$@"
+      }
+    fi
 
-  if [ -x /usr/bin/ld ]; then
-    function ld(){
-      \grc --colour=auto /usr/bin/ld "$@"
-    }
-  fi
+    if [ -x /usr/bin/last ]; then
+      function last(){
+        \grc --colour=auto /usr/bin/last "$@"
+      }
+    fi
 
-  if [ -x /sbin/ifconfig ]; then
-    function ifconfig(){
-      \grc --colour=auto /sbin/ifconfig "$@"
-    }
-  fi
+    if [ -x /usr/bin/ld ]; then
+      function ld(){
+        \grc --colour=auto /usr/bin/ld "$@"
+      }
+    fi
 
-  # mount was in primordial Unix, but OS X and Linux have it in different paths.
-  if [ -x /bin/mount ]; then
-    function mount(){
-      \grc --colour=auto /bin/mount "$@"
-    }
-  fi
-  if [ -x /sbin/mount ]; then
-    function mount(){
-      \grc --colour=auto /sbin/mount "$@"
-    }
-  fi
+    if [ -x /sbin/ifconfig ]; then
+      function ifconfig(){
+        \grc --colour=auto /sbin/ifconfig "$@"
+      }
+    fi
 
-  # OS X and Linux have different paths to mtr
-  if [ -x /usr/local/sbin/mtr ]; then
-    function mtr(){
-      \grc --colour=auto /usr/local/sbin/mtr "$@"
-    }
-  fi
-  if [ -x /usr/sbin/mtr ]; then
-    function mtr(){
-      \grc --colour=auto /usr/sbin/mtr "$@"
-    }
-  fi
+    # mount was in primordial Unix, but OS X and Linux have it in different paths.
+    if [ -x /bin/mount ]; then
+      function mount(){
+        \grc --colour=auto /bin/mount "$@"
+      }
+    fi
+    if [ -x /sbin/mount ]; then
+      function mount(){
+        \grc --colour=auto /sbin/mount "$@"
+      }
+    fi
 
-  # OS X and Linux have different paths to netstat
-  if [ -x /usr/sbin/netstat ]; then
-    function netstat(){
-      \grc --colour=auto /usr/sbin/netstat "$@"
-    }
-  fi
-  if [ -x /bin/netstat ]; then
-    function netstat(){
-      \grc --colour=auto /bin/netstat "$@"
-    }
-  fi
+    # OS X and Linux have different paths to mtr
+    if [ -x /usr/local/sbin/mtr ]; then
+      function mtr(){
+        \grc --colour=auto /usr/local/sbin/mtr "$@"
+      }
+    fi
+    if [ -x /usr/sbin/mtr ]; then
+      function mtr(){
+        \grc --colour=auto /usr/sbin/mtr "$@"
+      }
+    fi
 
-  # OS X and Linux have different paths to ping, of course
-  if [ -x /sbin/ping ]; then
-    function ping(){
-      \grc --colour=auto /sbin/ping "$@"
-    }
-  fi
-  if [ -x /sbin/ping6 ]; then
-    function ping6(){
-      \grc --colour=auto /sbin/ping6 "$@"
-    }
-  fi
-  if [ -x /bin/ping ]; then
-    function ping(){
-      \grc --colour=auto /bin/ping "$@"
-    }
-  fi
+    # OS X and Linux have different paths to netstat
+    if [ -x /usr/sbin/netstat ]; then
+      function netstat(){
+        \grc --colour=auto /usr/sbin/netstat "$@"
+      }
+    fi
+    if [ -x /bin/netstat ]; then
+      function netstat(){
+        \grc --colour=auto /bin/netstat "$@"
+      }
+    fi
 
-  if [ -x /bin/ps ]; then
-    function ps(){
-      \grc --colour=auto /bin/ps "$@"
-    }
-  fi
+    # OS X and Linux have different paths to ping, of course
+    if [ -x /sbin/ping ]; then
+      function ping(){
+        \grc --colour=auto /sbin/ping "$@"
+      }
+    fi
+    if [ -x /sbin/ping6 ]; then
+      function ping6(){
+        \grc --colour=auto /sbin/ping6 "$@"
+      }
+    fi
+    if [ -x /bin/ping ]; then
+      function ping(){
+        \grc --colour=auto /bin/ping "$@"
+      }
+    fi
 
-  # OS X and Linux have different paths to traceroute
-  if [ -x /usr/sbin/traceroute ]; then
-    function traceroute(){
-      \grc --colour=auto /usr/sbin/traceroute "$@"
-    }
-  fi
-  if [ -x /bin/traceroute ]; then
-    function traceroute(){
-      \grc --colour=auto /bin/traceroute "$@"
-    }
-  fi
-  # OS X and Linux have different paths to traceroute6 too
-  if [ -x /usr/sbin/traceroute6 ]; then
-    function traceroute6(){
-      \grc --colour=auto /usr/sbin/traceroute6 "$@"
-    }
-  fi
-  if [ -x /bin/traceroute6 ]; then
-    function traceroute6(){
-      \grc --colour=auto /bin/traceroute6 "$@"
-    }
-  fi
+    if [ -x /bin/ps ]; then
+      function ps(){
+        \grc --colour=auto /bin/ps "$@"
+      }
+    fi
 
+    # OS X and Linux have different paths to traceroute
+    if [ -x /usr/sbin/traceroute ]; then
+      function traceroute(){
+        \grc --colour=auto /usr/sbin/traceroute "$@"
+      }
+    fi
+    if [ -x /bin/traceroute ]; then
+      function traceroute(){
+        \grc --colour=auto /bin/traceroute "$@"
+      }
+    fi
+    # OS X and Linux have different paths to traceroute6 too
+    if [ -x /usr/sbin/traceroute6 ]; then
+      function traceroute6(){
+        \grc --colour=auto /usr/sbin/traceroute6 "$@"
+      }
+    fi
+    if [ -x /bin/traceroute6 ]; then
+      function traceroute6(){
+        \grc --colour=auto /bin/traceroute6 "$@"
+      }
+    fi
+  fi
 fi
 
 # ANSI Color
@@ -180,7 +183,8 @@ ANSI_BG_CYAN="\033[46;46m"
 ANSI_BG_WHITE="\033[47;47m"
 
 # Configure colors, if available.
-if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+if (( $+commands[tput] )); then
+  tput setaf 1 >&/dev/null
   c_reset='\[\e[0m\]'
   # c_user='\[\033[1;33m\]'
   # c_path='\[\e[0;33m\]'
