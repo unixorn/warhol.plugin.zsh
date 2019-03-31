@@ -1,3 +1,8 @@
+[![CircleCI](https://circleci.com/gh/unixorn/warhol.plugin.zsh.svg?style=shield)](https://circleci.com/gh/unixorn/warhol.plugin.zsh)
+[![GitHub stars](https://img.shields.io/github/stars/unixorn/warhol.plugin.zsh.svg)](https://github.com/unixorn/warhol.plugin.zsh/stargazers)
+[![Issue Count](https://codeclimate.com/github/unixorn/warhol.plugin.zsh/badges/issue_count.svg)](https://codeclimate.com/github/unixorn/warhol.plugin.zsh)
+[![GitHub last commit (branch)](https://img.shields.io/github/last-commit/unixorn/warhol.plugin.zsh/master.svg)](https://github.com/unixorn/warhol.plugin.zsh)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
