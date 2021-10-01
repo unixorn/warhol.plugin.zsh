@@ -1,3 +1,5 @@
+# warhol.plugin.zsh
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![GitHub stars](https://img.shields.io/github/stars/unixorn/warhol.plugin.zsh.svg)](https://github.com/unixorn/warhol.plugin.zsh/stargazers)
 [![GitHub last commit (branch)](https://img.shields.io/github/last-commit/unixorn/warhol.plugin.zsh/master.svg)](https://github.com/unixorn/warhol.plugin.zsh)
@@ -17,8 +19,6 @@
   - [Tips](#tips)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# warhol.plugin.zsh
 
 Colorize command output using `grc` (when present) and lscolors.
 
@@ -61,9 +61,9 @@ The scripts in here don't actually require you to be using ZSH as your login she
 
 ## Tips
 
-Customizing `LSCOLORS` for OSX/*BSD and `LS_COLORS` for Linux is a hassle. It's even more of a hassle to keep them in sync across *BSD and Linux.
+Customizing `LSCOLORS` for macOS/BSD and `LS_COLORS` for Linux is a hassle. It's even more of a hassle to keep them in sync across macOS/BSD and Linux.
 
-Fortunately, Geoff Greer made an online tool that makes it easy to customize your color scheme and keep them in sync across Linux and OS X/*BSD available online at [lscolors](http://geoff.greer.fm/lscolors/). 
+Fortunately, Geoff Greer made an online tool that makes it easy to customize your color scheme and keep them in sync across Linux and OS X/*BSD available online at [lscolors](http://geoff.greer.fm/lscolors/).
 
 I've included my `LSCOLORS` and `LS_COLORS` settings in this plugin, but they won't be applied if you already have set `LSCOLORS` or `LS_COLORS`.
 
