@@ -1,7 +1,8 @@
-[![CircleCI](https://circleci.com/gh/unixorn/warhol.plugin.zsh.svg?style=shield)](https://circleci.com/gh/unixorn/warhol.plugin.zsh)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![GitHub stars](https://img.shields.io/github/stars/unixorn/warhol.plugin.zsh.svg)](https://github.com/unixorn/warhol.plugin.zsh/stargazers)
-[![Issue Count](https://codeclimate.com/github/unixorn/warhol.plugin.zsh/badges/issue_count.svg)](https://codeclimate.com/github/unixorn/warhol.plugin.zsh)
 [![GitHub last commit (branch)](https://img.shields.io/github/last-commit/unixorn/warhol.plugin.zsh/master.svg)](https://github.com/unixorn/warhol.plugin.zsh)
+![Superlinter](https://github.com/unixorn/warhol.plugin.zsh/actions/workflows/superlinter.yml/badge.svg)
+![Awesomebot](https://github.com/unixorn/warhol.plugin.zsh/actions/workflows/awesomebot.yml/badge.svg)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -9,7 +10,7 @@
 
 - [warhol.plugin.zsh](#warholpluginzsh)
   - [Installing](#installing)
-    - [Zgen](#zgen)
+    - [Zgenom](#zgenom)
     - [Antigen](#antigen)
     - [Oh-My-Zsh](#oh-my-zsh)
     - [Without using any frameworks](#without-using-any-frameworks)
@@ -23,9 +24,9 @@ Colorize command output using `grc` (when present) and lscolors.
 
 ## Installing
 
-### [Zgen](https://github.com/tarjoilija/zgen)
+### [Zgenom](https://github.com/jandamm/zgenom)
 
-Add `zgen load unixorn/warhol.plugin.zsh` to your .zshrc with your other load commands.
+Add `zgenom load unixorn/warhol.plugin.zsh` to your `.zshrc` with your other load commands.
 
 ### [Antigen](https://github.com/zsh-users/antigen)
 
@@ -62,7 +63,8 @@ The scripts in here don't actually require you to be using ZSH as your login she
 
 Customizing `LSCOLORS` for OSX/*BSD and `LS_COLORS` for Linux is a hassle. It's even more of a hassle to keep them in sync across *BSD and Linux.
 
-Fortunately, Geoff Greer made an online tool that makes it easy to customize your color scheme and keep them in sync across Linux and OS X/*BSD available online at [lscolors](http://geoff.greer.fm/lscolors/). I've included my `LSCOLORS` and `LS_COLORS` settings in this plugin, but they won't be applied if you already have set `LSCOLORS` or `LS_COLORS`.
+Fortunately, Geoff Greer made an online tool that makes it easy to customize your color scheme and keep them in sync across Linux and OS X/*BSD available online at [lscolors](http://geoff.greer.fm/lscolors/). 
+
+I've included my `LSCOLORS` and `LS_COLORS` settings in this plugin, but they won't be applied if you already have set `LSCOLORS` or `LS_COLORS`.
 
 The easiest way to change them if you use a ZSH framework is to redeclare the variables in your `.zshrc` after your framework loads your plugins.
-
