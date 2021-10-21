@@ -59,6 +59,12 @@ if (( $+commands[grc] )); then
       }
     fi
 
+    if [ -x /usr/bin/ip ]; then
+      function ip(){
+        \grc --colour=auto /usr/bin/ip "$@"
+      }
+    fi
+
     if [ -x /sbin/ifconfig ]; then
       function ifconfig(){
         \grc --colour=auto /sbin/ifconfig "$@"
