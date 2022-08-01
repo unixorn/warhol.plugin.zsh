@@ -2,8 +2,8 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![GitHub stars](https://img.shields.io/github/stars/unixorn/warhol.plugin.zsh.svg)](https://github.com/unixorn/warhol.plugin.zsh/stargazers)
-[![GitHub last commit (branch)](https://img.shields.io/github/last-commit/unixorn/warhol.plugin.zsh/master.svg)](https://github.com/unixorn/warhol.plugin.zsh)
-![Superlinter](https://github.com/unixorn/warhol.plugin.zsh/actions/workflows/superlinter.yml/badge.svg)
+[![GitHub last commit (branch)](https://img.shields.io/github/last-commit/unixorn/warhol.plugin.zsh/main.svg)](https://github.com/unixorn/warhol.plugin.zsh)
+![Megalinter](https://github.com/unixorn/warhol.plugin.zsh/actions/workflows/mega-linter.yml/badge.svg)
 ![Awesomebot](https://github.com/unixorn/warhol.plugin.zsh/actions/workflows/awesomebot.yml/badge.svg)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
