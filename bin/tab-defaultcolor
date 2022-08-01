@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Set an iterm2 tab's color back to default
+#
+# Copyright 2022, Joe Block <jpb@unixorn.net>
+
+echo -ne "\033]6;1;bg;*;default\a"

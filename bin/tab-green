@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+#
+# Set a tab green
+#
+# Copyright 2022, Joe Block <jpb@unixorn.net>
+
+set -o pipefail
+if [[ -n "$DEBUG" ]]; then
+  set -x
+fi
+
+function debug() {
+  if [[ -n "$DEBUG" ]]; then
+    echo "$@"
+  fi
+}
+
+function fail() {
+  printf '%s\n' "$1" >&2  ## Send message to stderr. Exclude >&2 if you don't want it that way.
+  exit "${2-1}"  ## Return a code specified by $2 or 1 by default.
+}
+
+function has() {
+  # Check if a command is in $PATH
+  which "$@" > /dev/null 2>&1
+}
+
+if ! has iterm2-tab-color; then
+  fail "Can't find iterm2-tab-color in your PATH"
+fi
+
+if [[ ! -n "$ITERM_SESSION_ID" ]]; then
+  fail "$(basename $0) only works in iTerm 2"
+fi
+
+exec iterm2-tab-color 0 255 0
