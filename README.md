@@ -20,7 +20,10 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-Colorize command output using `grc` (when present) and lscolors.
+Adds color-related helper scripts.
+- Colorize command output using `grc` (when present) and lscolors.
+- Add `colorize-tab`, `iterm-tab-color`, `tab-reset-color`, `tab-red`, `tab-green` and `tab-blue` helper scripts to colorize Iterm 2 tabs.
+
 
 ## Installing
 
@@ -57,7 +60,7 @@ If you're using [oh-my-zsh](github.com/robbyrussell/oh-my-zsh):
 1. `git clone git@github.com:unixorn/warhol.plugin.zsh.git`
 2. Add its bin directory to your `$PATH`. If you're using ZSH, you can just add `source /path/to/clone/of/warhol.plugin.zsh` to your `.zshrc` file.
 
-The scripts in here don't actually require you to be using ZSH as your login shell, they're being distributed as a [zgen](https://github.com/tarjoilija/zgen) plugin because that's convenient.
+The scripts in here don't actually require you to be using ZSH as your login shell, they're being distributed as a ZSH plugin because that's convenient.
 
 ## Tips
 
