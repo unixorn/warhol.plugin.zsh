@@ -136,6 +136,12 @@ if (( $+commands[grc] )); then
       }
     fi
 
+    if [ -x /usr/bin/stat ]; then
+      function stat(){
+        \grc --colour=auto /usr/bin/stat "$@"
+      }
+    fi
+    
     # OS X and Linux have different paths to traceroute
     if [ -x /usr/sbin/traceroute ]; then
       function traceroute(){
