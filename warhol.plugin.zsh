@@ -1,5 +1,7 @@
 #!/bin/zsh
-
+#
+# Copyright 2017-2023 Joe Block <jpb@unixorn.net>
+#
 # I use grc to colorize the output of some commands for clarity.
 #
 # brew install grc on OS X to check it out.
@@ -8,162 +10,23 @@ PLUGIN_BIN="$(dirname $0)/bin"
 export PATH=${PATH}:${PLUGIN_BIN}
 
 if (( $+commands[grc] )); then
-  GRC=$(which -p grc)
-
-  if [ "$TERM" != dumb ] && [ -n "$GRC" ]; then
-    alias colourify="${GRC} -es --colour=auto"
-
-    # Use functions so we can still take advantage of ZSH completion functions
-
-    function as(){
-      \grc --colour=auto /usr/bin/as "$@"
-    }
-
-    function diff(){
-      \grc --colour=auto /usr/bin/diff "$@"
-    }
-
-    if [ -x /usr/bin/dig ]; then
-      function dig(){
-        \grc --colour=auto /usr/bin/dig "$@"
-      }
-    fi
-
-    if [ -x /usr/bin/gas ]; then
-      function gas(){
-        \grc --colour=auto /usr/bin/gas "$@"
-      }
-    fi
-
-    if [ -x /usr/bin/gcc ]; then
-      function gcc(){
-        \grc --colour=auto /usr/bin/gcc "$@"
-      }
-    fi
-
-    if [ -x /usr/bin/g++ ]; then
-      function g++(){
-        \grc --colour=auto /usr/bin/g++ "$@"
-      }
-    fi
-
-    if [ -x /usr/bin/last ]; then
-      function last(){
-        \grc --colour=auto /usr/bin/last "$@"
-      }
-    fi
-
-    if [ -x /usr/bin/ld ]; then
-      function ld(){
-        \grc --colour=auto /usr/bin/ld "$@"
-      }
-    fi
-
-    if [ -x /usr/bin/ip ]; then
-      function ip(){
-        \grc --colour=auto /usr/bin/ip "$@"
-      }
-    fi
-
-    if [ -x /usr/bin/journalctl ]; then
-      function journalctl(){
-        \grc --colour=auto /usr/bin/journalctl "$@"
-      }
-    fi
-
-    if [ -x /sbin/ifconfig ]; then
-      function ifconfig(){
-        \grc --colour=auto /sbin/ifconfig "$@"
-      }
-    fi
-
-    # mount was in primordial Unix, but OS X and Linux have it in different paths.
-    if [ -x /bin/mount ]; then
-      function mount(){
-        \grc --colour=auto /bin/mount "$@"
-      }
-    fi
-    if [ -x /sbin/mount ]; then
-      function mount(){
-        \grc --colour=auto /sbin/mount "$@"
-      }
-    fi
-
-    # OS X and Linux have different paths to mtr
-    if [ -x /usr/local/sbin/mtr ]; then
-      function mtr(){
-        \grc --colour=auto /usr/local/sbin/mtr "$@"
-      }
-    fi
-    if [ -x /usr/sbin/mtr ]; then
-      function mtr(){
-        \grc --colour=auto /usr/sbin/mtr "$@"
-      }
-    fi
-
-    # OS X and Linux have different paths to netstat
-    if [ -x /usr/sbin/netstat ]; then
-      function netstat(){
-        \grc --colour=auto /usr/sbin/netstat "$@"
-      }
-    fi
-    if [ -x /bin/netstat ]; then
-      function netstat(){
-        \grc --colour=auto /bin/netstat "$@"
-      }
-    fi
-
-    # OS X and Linux have different paths to ping, of course
-    if [ -x /sbin/ping ]; then
-      function ping(){
-        \grc --colour=auto /sbin/ping "$@"
-      }
-    fi
-    if [ -x /sbin/ping6 ]; then
-      function ping6(){
-        \grc --colour=auto /sbin/ping6 "$@"
-      }
-    fi
-    if [ -x /bin/ping ]; then
-      function ping(){
-        \grc --colour=auto /bin/ping "$@"
-      }
-    fi
-
-    if [ -x /bin/ps ]; then
-      function ps(){
-        \grc --colour=auto /bin/ps "$@"
-      }
-    fi
-
-    if [ -x /usr/bin/stat ]; then
-      function stat(){
-        \grc --colour=auto /usr/bin/stat "$@"
-      }
-    fi
-    
-    # OS X and Linux have different paths to traceroute
-    if [ -x /usr/sbin/traceroute ]; then
-      function traceroute(){
-        \grc --colour=auto /usr/sbin/traceroute "$@"
-      }
-    fi
-    if [ -x /bin/traceroute ]; then
-      function traceroute(){
-        \grc --colour=auto /bin/traceroute "$@"
-      }
-    fi
-    # OS X and Linux have different paths to traceroute6 too
-    if [ -x /usr/sbin/traceroute6 ]; then
-      function traceroute6(){
-        \grc --colour=auto /usr/sbin/traceroute6 "$@"
-      }
-    fi
-    if [ -x /bin/traceroute6 ]; then
-      function traceroute6(){
-        \grc --colour=auto /bin/traceroute6 "$@"
-      }
-    fi
+  GRC=$(which grc)
+  if [ "$TERM" != dumb ] && [ -x "$GRC" ]; then
+    alias colourify="${GRC} --colour=auto"
+    for prog in as blkid configure df diff dig docker du env fdisk free \
+      gas gcc g++ id ifconfig ip journalctl last ld ls lsattr lsblk lsmod \
+      lsof lspci mount mtr netstat nmap ping ping6 ps pv stat sysctl \
+      systemctl tcpdump traceroute traceroute6 ulimit uptime vmstat;
+      do
+        if (( $+commands[$prog] )); then
+          if [[ $(alias | grep -c "$prog") -gt 0 ]]; then
+            # Nuke alias so we can use our generated function instead
+            unalias $prog
+          fi
+          # Use functions so we can still take advantage of ZSH completion functions
+          function $prog() { $GRC --colour=auto $prog "$@" }
+        fi
+      done
   fi
 fi
 
