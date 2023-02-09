@@ -13,10 +13,10 @@ if (( $+commands[grc] )); then
   GRC=$(which grc)
   if [ "$TERM" != dumb ] && [ -x "$GRC" ]; then
     alias colourify="${GRC} --colour=auto"
-    for prog in as blkid configure df diff dig docker du env fdisk free \
-      gas gcc g++ id ifconfig ip journalctl last ld ls lsattr lsblk lsmod \
-      lsof lspci mount mtr netstat nmap ping ping6 ps pv stat sysctl \
-      systemctl tcpdump traceroute traceroute6 ulimit uptime vmstat;
+    for prog in as blkid configure df diff dig docker docker-machine du env fdisk free \
+      g++ gas gcc getsebool head id ifconfig ip iptables journalctl last ld ls lsattr lsblk lsmod \
+      lsof lspci make mount mtr netstat nmap ping ping6 ps pv semanage stat sysctl \
+      systemctl tail tcpdump traceroute traceroute6 ulimit uptime vmstat;
       do
         if (( $+commands[$prog] )); then
           unalias $prog &> /dev/null
