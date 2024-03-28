@@ -20,9 +20,9 @@ if (( $+commands[grc] )); then
   GRC=$(which grc)
   if [ "$TERM" != dumb ] && [ -x "$GRC" ]; then
     alias colourify="${GRC} --colour=auto"
-    for prog in as blkid configure df diff dig docker docker-machine du env fdisk free \
-      g++ gas gcc getsebool head id ifconfig ip iptables journalctl last ld log ls lsattr lsblk lsmod \
-      lsof lspci make mount mtr mvn netstat nmap ping ping6 ps pv semanage showmount stat sysctl \
+    for prog in as blkid cc configure curl df diff dig docker docker-compose docker-machine du env fdisk free \
+      g++ gas gcc getsebool head id ifconfig iostat ip iptables jobs journalctl kubectl last ld log ls lsattr lsblk lsmod \
+      lsof lspci make mount mtr mvn netstat nmap php ping ping6 ps pv semanage showmount stat sysctl \
       systemctl tail tcpdump traceroute traceroute6 ulimit uptime vmstat whois;
       do
         grc_disabler="warhol_ignore_$prog"
