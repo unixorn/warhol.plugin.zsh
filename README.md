@@ -51,7 +51,7 @@ Unless `WARHOL_NO_ANSIVARS` is set, `warhol` will set the following variables fo
 
 The plugin will look for the following commands, and if found, create a function that wraps them in `grc` to colorize their output.
 
-`blkid`, `cc`, `configure`, `curl`, `df`, `diff`, `dig`, `docker`, docker-`compose`, docker-`machine`, `du`, `env`, `fdisk`, `free`, `g++`, `gas`, `gcc`, `getsebool`, `head`, `id`, `ifconfig`, `iostat`, `ip`, `iptables`, `jobs`, `journalctl`, `kubectl`, `last`, `ld`, `ls`, `lsattr`, `lsblk`, `lsmod`, `lsof`, `lspci`, `make`, `mount`, `mtr`, `netstat`, `nmap`, `php`, `ping`, `ping6`, `ps`, `pv`, `semanage`, `stat`, `sysctl`, `systemctl`, `tail`, `tcpdump`, `traceroute`, `traceroute6`, `ulimit`, `uptime` and `vmstat`.
+`blkid`, `cc`, `configure`, `curl`, `df`, `diff`, `dig`, `docker`, docker-`machine`, `du`, `env`, `fdisk`, `free`, `g++`, `gas`, `gcc`, `getsebool`, `head`, `id`, `ifconfig`, `iostat`, `ip`, `iptables`, `jobs`, `journalctl`, `kubectl`, `last`, `ld`, `ls`, `lsattr`, `lsblk`, `lsmod`, `lsof`, `lspci`, `make`, `mount`, `mtr`, `netstat`, `nmap`, `php`, `ping`, `ping6`, `ps`, `pv`, `semanage`, `stat`, `sysctl`, `systemctl`, `tail`, `tcpdump`, `traceroute`, `traceroute6`, `ulimit`, `uptime` and `vmstat`.
 
 If you don't want a command wrapped, set a variable named `warhol_ignore_COMMANDNAME`. To disable wrapping `ls` for example, set `warhol_ignore_ls`. The value doesn't matter, the plugin only checks for its existence.
 
