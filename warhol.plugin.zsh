@@ -6,8 +6,11 @@
 #
 # brew install grc on OS X to check it out.
 
-PLUGIN_BIN="$(dirname $0)/bin"
-export PATH=${PATH}:${PLUGIN_BIN}
+# Add plugin_root/bin to user's path, but only if it exists and is
+# a directory
+if [[ -d "${0:h}/bin" ]];then
+  path+=("${0:h}/bin")
+fi
 
 function warhol_debug() {
   if [[ -n "$DEBUG" ]]; then
