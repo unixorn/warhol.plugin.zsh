@@ -43,7 +43,7 @@ if (( $+commands[grc] )); then
   fi
 fi
 
-if [[ -z "WARHOL_NO_ANSIVARS" ]]; then
+if [[ -z "$WARHOL_NO_ANSIVARS" ]]; then
   # ANSI Color
   # Attributes are in #;#;#...;#
   # 0 reset, 1 bold, 4 underline, 5 flashing, 7 inverse
