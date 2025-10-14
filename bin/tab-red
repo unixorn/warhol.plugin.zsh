@@ -2,7 +2,8 @@
 #
 # Set a tab red
 #
-# Copyright 2022, Joe Block <jpb@unixorn.net>
+# Copyright 2022-2025, Joe Block <jpb@unixorn.net>
+# shellcheck disable=SC2004
 
 set -o pipefail
 if [[ -n "$DEBUG" ]]; then
@@ -30,6 +31,7 @@ if ! has iterm2-tab-color; then
 fi
 
 if [[ ! -n "$ITERM_SESSION_ID" ]]; then
+  # shellcheck disable=SC2086
   fail "$(basename $0) only works in iTerm 2"
 fi
 
