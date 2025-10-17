@@ -26,6 +26,7 @@ function has() {
 }
 
 if [[ ! -n "$ITERM_SESSION_ID" ]]; then
+  # shellcheck disable=SC2086
   fail "$(basename $0) only works in iTerm 2"
 fi
 
@@ -34,5 +35,6 @@ if [[ $# == 3 ]]; then
   echo -ne "\033]6;1;bg;green;brightness;$2\a"
   echo -ne "\033]6;1;bg;blue;brightness;$3\a"
 else
+  # shellcheck disable=SC2086
   fail "$(basename $0) requires 3 arguments for the red, green and blue values to set the tab to"
 fi
