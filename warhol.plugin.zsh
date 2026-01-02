@@ -33,9 +33,30 @@ if (( $+commands[grc] )); then
           if (( $+commands[$prog] )); then
             unalias $prog &> /dev/null
             # Use functions so we can still take advantage of ZSH completion functions
-            function $prog() {
-              \grc --colour=auto $0 "$@"
-            }
+            if [[ "$prog" == "kubectl" ]]; then
+              function kubectl() {
+                # Skip grc for interactive kubectl sessions so prompts render properly
+                local is_interactive=0
+                local kubectl_arg
+                for kubectl_arg in "$@"; do
+                  case "$kubectl_arg" in
+                    -i|-t|-it|-ti|--stdin|--tty)
+                      is_interactive=1
+                      break
+                      ;;
+                  esac
+                done
+                if [[ $is_interactive -eq 1 ]]; then
+                  command kubectl "$@"
+                else
+                  \grc --colour=auto kubectl "$@"
+                fi
+              }
+            else
+              function $prog() {
+                \grc --colour=auto $0 "$@"
+              }
+            fi
           fi
         fi
       done
