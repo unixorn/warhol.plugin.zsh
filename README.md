@@ -55,6 +55,8 @@ The plugin will look for the following commands, and if found, create a function
 
 If you don't want a command wrapped, set a variable named `warhol_ignore_COMMANDNAME`. To disable wrapping `ls` for example, set `warhol_ignore_ls`. The value doesn't matter, the plugin only checks for its existence.
 
+Kubectl interactive sessions: warhol skips `grc` when `kubectl` is called with interactive flags (`-i`, `-t`, `-it`, `-ti`, `--stdin`, `--tty`) so prompts render correctly (for example, `kubectl debug -it`). Use `warhol_ignore_kubectl` if you want to disable kubectl colorization entirely.
+
 - Colorize command output using `grc` (when present) and lscolors.
 - Add `colorize-tab`, `iterm-tab-color`, `tab-reset-color`, `tab-red`, `tab-green` and `tab-blue` helper scripts to colorize Iterm 2 tabs.
 
